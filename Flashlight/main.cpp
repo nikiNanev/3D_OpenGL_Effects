@@ -46,8 +46,9 @@ int main() {
 
 	// glfw window creation
 	// --------------------
+	GLFWmonitor *monitor = glfwGetPrimaryMonitor();
 	GLFWwindow *window =
-	    glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, title.c_str(), NULL, NULL);
+	    glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, title.c_str(), monitor, NULL);
 	if (window == NULL) {
 		std::cout << error_text_glfw_window << std::endl;
 		glfwTerminate();
@@ -174,7 +175,7 @@ int main() {
 	stbi_set_flip_vertically_on_load(true);
 	unsigned int diffuse_map, specular_map;
 
-	TextureLoader tl1("textures/stone.jpg", diffuse_map);
+	TextureLoader tl1("textures/matrix.jpg", diffuse_map);
 	TextureLoader tl2("textures/simple_frame.jpg", specular_map);
 
 	lightingShader.use();
@@ -197,7 +198,7 @@ int main() {
 
 		// render
 		// ------
-		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+		glClearColor(0.1f, 0.1f, 0.7f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// be sure to activate shader when setting uniforms/drawing

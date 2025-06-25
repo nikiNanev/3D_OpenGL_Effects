@@ -58,7 +58,9 @@ class Callbacks {
 				 double yoffset) {
 		mouse.fov -= (float)yoffset;
 		if (mouse.fov < 1.0f) mouse.fov = 1.0f;
-		if (mouse.fov > 45.0f) mouse.fov = 45.0f;
+		if (mouse.fov > 60.0f) mouse.fov = 60.0f;
 	}
+
+	
 };
 #endif
